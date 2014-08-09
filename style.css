@@ -1,0 +1,24 @@
+.thumb{
+     width: 100px;
+     height: 100px;
+     float: left;
+     cursor: pointer;
+ }
+
+.main{
+    width: 500px;
+    height: 500px;
+}
+
+.config {
+    display: block;
+    float: none;
+}
+
+.nav{
+    clear: left;
+}
+
+.aside{
+    background-color: #dcd9cf;
+}
