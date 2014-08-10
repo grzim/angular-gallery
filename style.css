@@ -11,7 +11,7 @@
 }
 
 .config {
-    display: block;
+    display: inline-block;
     float: none;
 }
 
@@ -21,4 +21,51 @@
 
 .aside{
     background-color: #dcd9cf;
+    padding-left: 200px;
+}
+.big-image-container{
+    display: table;
+}
+#gallery-container{
+    margin-left: 200px;
+    width: 600px;
+    display: inline-block;
+}
+.big-image-container{
+    width: 600px;
+    height: 500px;
+    margin-bottom:20px;
+}
+.big-image > *{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.gallery-container{
+    padding-left: 200px;
+    width: 600px;
+}
+
+.thumbs {
+    display:table-cell;
+    position: relative;
+}
+
+.arrow-container{
+    display:table-cell;
+    vertical-align:middle;
+
+}
+.arrow-container > *{
+    font-size:20px;
+    cursor: pointer;
+}
+
+#gallery-thumbs{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
 }

@@ -33,12 +33,7 @@ myApp.controller("GalleryController", function ($scope, conf, mockJson) {
                 this.position.big=0;
             }
             this.select();
-            if(this.position.big>=this.position.thumb+$scope.thumbSize){
-                this.nextThumb();
-            }
-            if(this.position.big<this.position.thumb){
-                this.nextThumb();
-            }
+           this.nextThumb();
         },
         prevBig: function() {
             this.position.big--;
@@ -46,11 +41,14 @@ myApp.controller("GalleryController", function ($scope, conf, mockJson) {
                 this.position.big=this.value.length-1;
             }
             this.select();
+
             if(this.position.big>=this.position.thumb+$scope.thumbSize){
-                this.prevThumb();
+                //this.prevThumb();
+                this.position.thumb = this.position.big;
             }
             if(this.position.big<this.position.thumb){
-                this.prevThumb();
+                //this.prevThumb();
+                this.position.thumb = this.position.big;
             }
         },
         nextThumb: function(){

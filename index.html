@@ -1,47 +1,59 @@
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
 <script src = "myApp.js"></script>
-<LINK href="style.css" rel="stylesheet" type="text/css">
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 <div ng-app='myApp' ng-controller='GalleryController'>
-    <div id="gallery-image" ng-init="images.fill(mock)">
-        <img ng-src={{images.selected.source}} class="main">
-        <div class="nav">
-            <button ng-click="images.prevBig()">prev</button>
-            <button ng-click="images.nextBig()">next </button>
+    <div id="gallery-container">
+        <div  ng-init="images.fill(mock)">
+            <div class="big-image-container">
+                <div class="arrow-container">
+                    <span class="glyphicon glyphicon-chevron-left col-xs-1" ng-click="images.prevBig()"></span>
+                </div>
+                <div class="big-image">
+                    <img ng-src={{images.selected.source}}>
+                </div>
+                <div class="arrow-container">
+                    <span class="glyphicon glyphicon-chevron-right col-xs-1" ng-click="images.nextBig()"></span>
+                </div>
+
+                <div>
+                    <ul>
+                        <li>Title: {{images.selected.name}}</li>
+                        <li>Description: {{images.selected.description}}</li>
+                        <li>Source: {{images.selected.source}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div>
-            <ul>
-                <li>Title: {{images.selected.name}}</li>
-                <li>Description: {{images.selected.description}}</li>
-                <li>Source: {{images.selected.source}}</li>
-            </ul>
+
+        <div id="gallery-thumbs">
+            <div class="arrow-container">
+                <span class="glyphicon glyphicon-chevron-left" ng-click="images.prevThumb()"></span>
+            </div>
+            <div  class="thumbs" ng-repeat="image in images.value" ng-if="images.displayHead($index)">
+                <img class="thumb" ng-src="{{image.source}}" ng-click="images.select($index)"/>
+            </div>
+            <div class="thumbs" ng-repeat="image in images.value" ng-if="images.displayTail($index)">
+                <img class="thumb" ng-src="{{image.source}}" ng-click="images.select($index)"/>
+            </div>
+            <div class="arrow-container">
+                 <span class="glyphicon glyphicon-chevron-right" ng-click="images.nextThumb()"></span>
+            </div>
         </div>
     </div>
 
-    <div id="gallery-thumbs">
-        <div  ng-repeat="image in images.value" ng-if="images.displayHead($index)">
-            <img class="thumb" ng-src="{{image.source}}" ng-click="images.select($index)"/>
-        </div>
-        <div  ng-repeat="image in images.value" ng-if="images.displayTail($index)">
-            <img class="thumb" ng-src="{{image.source}}" ng-click="images.select($index)"/>
+        <div class="aside">
+            <div class="config">
+                <h2>config:</h2> <br>
+                Select number of thumbnails to display:
+            <input type="number" min="1" max="{{images.value.length-1}}" ng-model="thumbSize">
+
+            </div>
+            <hr>
+            <div>Sample JSON object from witch data gathered:</div>
+            <textarea ng-model="mock"></textarea>
         </div>
 
     </div>
-    <div class="nav">
-        <button ng-click="images.prevThumb()">prev </button>
-        <button ng-click="images.nextThumb()">next </button>
-    </div>
-<div class="aside">
-    <div class="config">
-        <h2>config:</h2> <br>
-        Select number of thumbnails to display:
-    <input type="number" min="1" max="{{images.value.length-1}}" ng-model="thumbSize">
-
-    </div>
-    <hr>
-    <div>Sample JSON object from witch data gathered:</div>
-    <textarea ng-model="mock"></textarea>
 </div>
-
-</div>
-    
     
