@@ -1,3 +1,7 @@
+#gallery{
+    background-color: #e9e6dc;
+}
+
 .thumb{
      width: 100px;
      height: 100px;
@@ -20,8 +24,12 @@
 }
 
 .aside{
+    bottom: 0px;
+    width:100%;
+    position: fixed;
     background-color: #dcd9cf;
     padding-left: 200px;
+    padding-bottom:50px;
 }
 .big-image-container{
     display: table;
@@ -68,4 +76,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+}
+
+.blank{
+    height:300px;
 }

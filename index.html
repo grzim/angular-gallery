@@ -2,7 +2,7 @@
 <script src = "myApp.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
-<div ng-app='myApp' ng-controller='GalleryController'>
+<div id="gallery" ng-app='myApp' ng-controller='GalleryController'>
     <div id="gallery-container">
         <div  ng-init="images.fill(mock)">
             <div class="big-image-container">
@@ -18,11 +18,11 @@
 
                 <div>
                     <ul>
-                        <li>Title: {{images.selected.name}}</li>
-                        <li>Description: {{images.selected.description}}</li>
-                        <li>Source: {{images.selected.source}}</li>
+                        <li><label>Title: </label> {{images.selected.name}}</li>
+                        <li><label>Description: </label> {{images.selected.description}}</li>
+                        <li><label>Source: </label> {{images.selected.source}}</li>
                     </ul>
-                </div>
+               </div>
             </div>
         </div>
 
@@ -42,18 +42,22 @@
         </div>
     </div>
 
-        <div class="aside">
-            <div class="config">
+        <div class="aside col-xs-12 container-fluid">
+            <div class="config col-xs-4 pull-left">
                 <h2>config:</h2> <br>
-                Select number of thumbnails to display:
-            <input type="number" min="1" max="{{images.value.length-1}}" ng-model="thumbSize">
-
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">Select number of thumbnails to display:</label>
+                <div class="col-xs-12 col-lg-3">
+                    <input type="number" class="form-control" min="1" max="{{images.value.length-1}}" ng-model="thumbSize">
+                </div>
             </div>
-            <hr>
-            <div>Sample JSON object from witch data gathered:</div>
-            <textarea ng-model="mock"></textarea>
-        </div>
 
+            <div class="col-xs-4">
+                <div><h4>Sample JSON object from witch data gathered:</h4></div>
+                <textarea class="form-control " rows="5" ng-model="mock"></textarea>
+            </div>
+        </div>
+        <div class="blank">
+        </div>
     </div>
 </div>
     
